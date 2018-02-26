@@ -1,0 +1,288 @@
+Archive member included to satisfy reference by file (symbol)
+
+../libctru/lib\libctru.a(svc.o)
+                              build/main.o (getThreadCommandBuffer)
+c:/devkitPro/devkitARM/arm-none-eabi/lib\libc.a(lib_a-memcmp.o)
+                              build/main.o (memcmp)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAMX             0x00120000         0x00004000         xr
+RAMRW            0x08000000         0x00100000         rw !l
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+
+.text           0x00120000      0x53c
+ build/crt0.o(.init)
+ .init          0x00120000        0x4 build/crt0.o
+                0x00120000                _start
+ *(.text)
+ .text          0x00120004        0x0 build/crt0.o
+ .text          0x00120004        0x0 build/font.o
+ *fill*         0x00120004        0x4 
+ .text          0x00120008      0x4fc build/main.o
+                0x00120008                gspwn
+                0x00120060                _GSPGPU_SetBufferSwap
+                0x001200dc                _main
+                0x001204a0                _takeover
+ .text          0x00120504        0x0 build/text.o
+ *fill*         0x00120504        0xc 
+ .text          0x00120510        0x0 ../libctru/lib\libctru.a(svc.o)
+ .text          0x00120510        0x0 c:/devkitPro/devkitARM/arm-none-eabi/lib\libc.a(lib_a-memcmp.o)
+ *(.rodata)
+ .rodata        0x00120510       0x2c build/main.o
+                0x00120510                _DSP_RegisterInterruptEvents
+                0x00120514                _DSP_UnloadComponent
+                0x00120518                _FSUSER_CloseFile
+                0x0012051c                _FSUSER_ReadFile
+                0x00120520                _FSUSER_OpenFileDirectly
+                0x00120524                _GSPGPU_GxTryEnqueue
+                0x00120528                _GSPGPU_FlushDataCache
+                0x0012052c                sharedGspCmdBuf
+                0x00120530                gspHandle
+                0x00120534                dspHandle
+                0x00120538                fsHandle
+                0x0012053c                _got_start = .
+ *(.got)
+ *(.got.plt)
+ *(.data.rel.ro.local)
+                0x0012053c                _got_end = .
+
+.rodata.str1.1  0x0012053c        0xd
+ .rodata.str1.1
+                0x0012053c        0xd build/main.o
+                                  0xe (size before relaxing)
+
+.data           0x00000000        0x0
+ .data          0x00000000        0x0 build/crt0.o
+ .data          0x00000000        0x0 build/font.o
+ .data          0x00000000        0x0 build/main.o
+ .data          0x00000000        0x0 build/text.o
+ .data          0x00000000        0x0 ../libctru/lib\libctru.a(svc.o)
+ .data          0x00000000        0x0 c:/devkitPro/devkitARM/arm-none-eabi/lib\libc.a(lib_a-memcmp.o)
+
+.igot.plt       0x00000000        0x0
+ .igot.plt      0x00000000        0x0 build/crt0.o
+
+.glue_7         0x0012054c        0x0
+ .glue_7        0x0012054c        0x0 linker stubs
+
+.glue_7t        0x0012054c        0x0
+ .glue_7t       0x0012054c        0x0 linker stubs
+
+.vfp11_veneer   0x0012054c        0x0
+ .vfp11_veneer  0x0012054c        0x0 linker stubs
+
+.v4_bx          0x0012054c        0x0
+ .v4_bx         0x0012054c        0x0 linker stubs
+
+.iplt           0x0012054c        0x0
+ .iplt          0x0012054c        0x0 build/crt0.o
+
+.text.getThreadCommandBuffer
+                0x0012054c        0xc
+ .text.getThreadCommandBuffer
+                0x0012054c        0xc ../libctru/lib\libctru.a(svc.o)
+                0x0012054c                getThreadCommandBuffer
+
+.text.svc_controlMemory
+                0x00120558       0x20
+ .text.svc_controlMemory
+                0x00120558       0x20 ../libctru/lib\libctru.a(svc.o)
+                0x00120558                svc_controlMemory
+
+.text.svc_queryMemory
+                0x00120578       0x30
+ .text.svc_queryMemory
+                0x00120578       0x30 ../libctru/lib\libctru.a(svc.o)
+                0x00120578                svc_queryMemory
+
+.text.svc_exitProcess
+                0x001205a8        0x8
+ .text.svc_exitProcess
+                0x001205a8        0x8 ../libctru/lib\libctru.a(svc.o)
+                0x001205a8                svc_exitProcess
+
+.text.svc_createThread
+                0x001205b0       0x20
+ .text.svc_createThread
+                0x001205b0       0x20 ../libctru/lib\libctru.a(svc.o)
+                0x001205b0                svc_createThread
+
+.text.svc_exitThread
+                0x001205d0        0x8
+ .text.svc_exitThread
+                0x001205d0        0x8 ../libctru/lib\libctru.a(svc.o)
+                0x001205d0                svc_exitThread
+
+.text.svc_sleepThread
+                0x001205d8        0x8
+ .text.svc_sleepThread
+                0x001205d8        0x8 ../libctru/lib\libctru.a(svc.o)
+                0x001205d8                svc_sleepThread
+
+.text.svc_createMutex
+                0x001205e0       0x14
+ .text.svc_createMutex
+                0x001205e0       0x14 ../libctru/lib\libctru.a(svc.o)
+                0x001205e0                svc_createMutex
+
+.text.svc_releaseMutex
+                0x001205f4        0x8
+ .text.svc_releaseMutex
+                0x001205f4        0x8 ../libctru/lib\libctru.a(svc.o)
+                0x001205f4                svc_releaseMutex
+
+.text.svc_releaseSemaphore
+                0x001205fc       0x14
+ .text.svc_releaseSemaphore
+                0x001205fc       0x14 ../libctru/lib\libctru.a(svc.o)
+                0x001205fc                svc_releaseSemaphore
+
+.text.svc_createEvent
+                0x00120610       0x14
+ .text.svc_createEvent
+                0x00120610       0x14 ../libctru/lib\libctru.a(svc.o)
+                0x00120610                svc_createEvent
+
+.text.svc_signalEvent
+                0x00120624        0x8
+ .text.svc_signalEvent
+                0x00120624        0x8 ../libctru/lib\libctru.a(svc.o)
+                0x00120624                svc_signalEvent
+
+.text.svc_clearEvent
+                0x0012062c        0x8
+ .text.svc_clearEvent
+                0x0012062c        0x8 ../libctru/lib\libctru.a(svc.o)
+                0x0012062c                svc_clearEvent
+
+.text.svc_createMemoryBlock
+                0x00120634       0x18
+ .text.svc_createMemoryBlock
+                0x00120634       0x18 ../libctru/lib\libctru.a(svc.o)
+                0x00120634                svc_createMemoryBlock
+
+.text.svc_mapMemoryBlock
+                0x0012064c        0x8
+ .text.svc_mapMemoryBlock
+                0x0012064c        0x8 ../libctru/lib\libctru.a(svc.o)
+                0x0012064c                svc_mapMemoryBlock
+
+.text.svc_unmapMemoryBlock
+                0x00120654        0x8
+ .text.svc_unmapMemoryBlock
+                0x00120654        0x8 ../libctru/lib\libctru.a(svc.o)
+                0x00120654                svc_unmapMemoryBlock
+
+.text.svc_arbitrateAddress
+                0x0012065c        0x8
+ .text.svc_arbitrateAddress
+                0x0012065c        0x8 ../libctru/lib\libctru.a(svc.o)
+                0x0012065c                svc_arbitrateAddress
+
+.text.svc_closeHandle
+                0x00120664        0x8
+ .text.svc_closeHandle
+                0x00120664        0x8 ../libctru/lib\libctru.a(svc.o)
+                0x00120664                svc_closeHandle
+
+.text.svc_waitSynchronization1
+                0x0012066c        0x8
+ .text.svc_waitSynchronization1
+                0x0012066c        0x8 ../libctru/lib\libctru.a(svc.o)
+                0x0012066c                svc_waitSynchronization1
+
+.text.svc_waitSynchronizationN
+                0x00120674       0x20
+ .text.svc_waitSynchronizationN
+                0x00120674       0x20 ../libctru/lib\libctru.a(svc.o)
+                0x00120674                svc_waitSynchronizationN
+
+.text.svc_getSystemTick
+                0x00120694        0x8
+ .text.svc_getSystemTick
+                0x00120694        0x8 ../libctru/lib\libctru.a(svc.o)
+                0x00120694                svc_getSystemTick
+
+.text.svc_getSystemInfo
+                0x0012069c       0x1c
+ .text.svc_getSystemInfo
+                0x0012069c       0x1c ../libctru/lib\libctru.a(svc.o)
+                0x0012069c                svc_getSystemInfo
+
+.text.svc_getProcessInfo
+                0x001206b8       0x1c
+ .text.svc_getProcessInfo
+                0x001206b8       0x1c ../libctru/lib\libctru.a(svc.o)
+                0x001206b8                svc_getProcessInfo
+
+.text.svc_connectToPort
+                0x001206d4       0x14
+ .text.svc_connectToPort
+                0x001206d4       0x14 ../libctru/lib\libctru.a(svc.o)
+                0x001206d4                svc_connectToPort
+
+.text.svc_sendSyncRequest
+                0x001206e8        0x8
+ .text.svc_sendSyncRequest
+                0x001206e8        0x8 ../libctru/lib\libctru.a(svc.o)
+                0x001206e8                svc_sendSyncRequest
+
+.text.svc_getProcessId
+                0x001206f0       0x14
+ .text.svc_getProcessId
+                0x001206f0       0x14 ../libctru/lib\libctru.a(svc.o)
+                0x001206f0                svc_getProcessId
+
+.text.memcmp    0x00120704       0xf0
+ .text.memcmp   0x00120704       0xf0 c:/devkitPro/devkitARM/arm-none-eabi/lib\libc.a(lib_a-memcmp.o)
+                0x00120704                memcmp
+
+.rel.dyn        0x001207f4        0x0
+ .rel.iplt      0x001207f4        0x0 build/crt0.o
+
+.bss            0x08000000        0x4
+                0x08000000                _bss_start = .
+ *(.bss)
+ .bss           0x08000000        0x0 build/crt0.o
+ .bss           0x08000000        0x0 build/font.o
+ .bss           0x08000000        0x4 build/main.o
+                0x08000000                synchronizer
+ .bss           0x08000004        0x0 build/text.o
+ .bss           0x08000004        0x0 ../libctru/lib\libctru.a(svc.o)
+ .bss           0x08000004        0x0 c:/devkitPro/devkitARM/arm-none-eabi/lib\libc.a(lib_a-memcmp.o)
+                0x08000004                _bss_end = .
+LOAD build/font.o
+LOAD build/main.o
+LOAD build/text.o
+LOAD ../libctru/lib\libctru.a
+LOAD c:/devkitPro/devkitARM/arm-none-eabi/lib\libm.a
+LOAD c:/devkitPro/devkitARM/arm-none-eabi/lib\libc.a
+LOAD c:/devkitPro/devkitARM/arm-none-eabi/lib\libg.a
+OUTPUT(mhax_code.elf elf32-littlearm)
+
+.ARM.attributes
+                0x00000000       0x27
+ .ARM.attributes
+                0x00000000       0x19 build/crt0.o
+ .ARM.attributes
+                0x00000019       0x2b build/font.o
+ .ARM.attributes
+                0x00000044       0x2b build/main.o
+ .ARM.attributes
+                0x0000006f       0x2b build/text.o
+ .ARM.attributes
+                0x0000009a       0x19 ../libctru/lib\libctru.a(svc.o)
+ .ARM.attributes
+                0x000000b3       0x30 c:/devkitPro/devkitARM/arm-none-eabi/lib\libc.a(lib_a-memcmp.o)
+
+.comment        0x00000000       0x22
+ .comment       0x00000000       0x22 build/font.o
+                                 0x23 (size before relaxing)
+ .comment       0x00000022       0x23 build/main.o
+ .comment       0x00000022       0x23 build/text.o
+ .comment       0x00000022       0x23 c:/devkitPro/devkitARM/arm-none-eabi/lib\libc.a(lib_a-memcmp.o)

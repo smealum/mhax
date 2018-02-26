@@ -1,0 +1,53 @@
+# format : ("ROP_GADGET_NAME", addr, word_size)
+# format : ("APP_CONSTANT_PTR", pattern_addr, pattern_word_size, value_words_offset)
+[
+	# pop gadgets
+	("ROP_MCOPY_POP_R0PC", 0x13e990, 0x1),
+	("ROP_MCOPY_POP_R1PC", 0x169f78, 0x1),
+	("ROP_MCOPY_POP_R3PC", 0x106e48, 0x1),
+	("ROP_MCOPY_POP_R4PC", 0x10378c, 0x1),
+	("ROP_MCOPY_POP_R4R5PC", 0x10e518, 0x1),
+	("ROP_MCOPY_POP_R2R3R4R5R6PC", 0x13cfc8, 0x1),
+	("ROP_MCOPY_POP_R4R5R6R7R8R9R10R11PC", 0x10efb4, 0x1),
+	("ROP_MCOPY_POP_R4LR_BX_R1", 0x1171e4, 0x2),
+	("ROP_MCOPY_NOP", 0x117560, 0x1),
+
+	# jump gadgets
+	("ROP_MCOPY_BX_R1", 0x10c518, 0x1),
+
+	# pivot gadgets
+	("ROP_MCOPY_MOV_SPR0_MOV_R0R2_MOV_LRR3_BX_R1", 0x13f138, 0x4),
+
+	# conditional gadgets
+	("ROP_MCOPY_CMP_R0x0_MOVNE_R0R4_MOVEQ_R0R5_POP_R4R5R6PC", 0x1a222c, 0x4),
+
+	# load gadgets
+	("ROP_MCOPY_LDRR0R0_POP_R4PC", 0x12c3d8, 0x2),
+
+	# store gadgets
+	("ROP_MCOPY_STR_R0R4_POP_R4PC", 0x10e304, 0x2),
+	
+	# arithmetic gadgets
+	("ROP_MCOPY_ADD_R0R4_POP_R4PC", 0x1a99c8, 0x2),
+
+	# handles
+	("MCOPY_FS_HANDLE", 0x00167ECC, 0x4, 0xa),
+	("MCOPY_DSP_HANDLE", 0x0010E594, 0x5, 0xc),
+	("MCOPY_GSPGPU_HANDLE", 0x00129180, 0x8, 0x1f),
+
+	# functions
+	("MCOPY_FSUSER_OPENFILEDIRECTLY", 0x127c14, 0x10), # r0 : &handle, r1 : &file_handle, r2 : transaction, r3 : archive_id, sp+0 : archive_path_type, sp+4 : *archive_path, sp+8 : archive_path_length, sp+0xC : path_type, sp+0x10 : path, sp+0x14 : pathlength, sp+0x18 : openflags, sp+0x1c : attributes
+	("MCOPY_FSUSER_READ", 0x141b10, 0x16), # r0 : &handle, r1 : &bytes_read, r2 : offset_low, r3 : offset_high, sp+0 : *outbuf, sp+4 : size
+	("MCOPY_FSUSER_CLOSE", 0x141B68, 0xb), # r0 : &handle
+	("MCOPY_GSPGPU_GXTRYENQUEUE", 0x155e78, 0x10),
+	("MCOPY_GSPGPU_GXCMD4", 0x137848, 0x8),
+	("MCOPY_GSPGPU_FLUSHDATACACHE", 0x138640, 0xf),
+	("MCOPY_GSPGPU_FLUSHDATACACHE_WRAPPER", 0x129298, 0x5),
+	("MCOPY_DSP_UNLOADCOMPONENT", 0x15d9ac, 0xa),
+	("MCOPY_DSP_REGISTERINTERRUPTEVENTS", 0x12f81c, 0xf),
+	("MCOPY_SVC_SLEEPTHREAD", 0x127430, 0x2),
+	("MCOPY_MEMCPY", 0x16509c, 0x10),
+
+	# buffers
+	("MCOPY_GSPGPU_INTERRUPT_RECEIVER_STRUCT", 0x00129180, 0x8, 0x20),
+]
